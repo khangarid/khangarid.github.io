@@ -1,2 +1,0 @@
-# khangarid.github.io
-Portfolio
