@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SlideReveal, Link } from '../../components';
-import { Name, Big, Left } from './styles';
+import { Name, Big, Small } from './styles';
 
 class Home extends React.Component<any> {
   renderLeft = () => (
@@ -9,26 +9,26 @@ class Home extends React.Component<any> {
       <Big>
         hi, I'm <Name>Khangarid</Name>
       </Big>,
-      <Left>
+      <Small align="right">
         a web developer.
-      </Left>,
-      <Left>
+      </Small>,
+      <Small align="right">
         know more <Link to="/about">about me</Link>
-      </Left>
+      </Small>
     ]
   )
 
   renderRight = () => (
     [
-      <div>
+      <Small>
         I like to build web apps and marvel at my code.
-      </div>,
-      <div>
+      </Small>,
+      <Small>
         other than that video games and animes are my favorite things.
-      </div>,
-      <div>
+      </Small>,
+      <Small>
         see my <Link to="/portfolio">portfolio</Link>
-      </div>
+      </Small>
     ]
   )
 

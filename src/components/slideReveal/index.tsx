@@ -1,6 +1,5 @@
 import React from 'react';
 import { TimelineMax, Expo, Back } from 'gsap';
-
 import { Wrapper, Slider, Container, Divider, Line } from './styles';
 
 interface OwnProps {
@@ -29,7 +28,7 @@ class SlideReveal extends React.Component<OwnProps> {
         .from(this.line, 0.5, { height: 0, ease: Expo.easeOut})
         .staggerFrom(this.leftSlider.children, 0.5, { x: 10, opacity: 0, ease: Back.easeOut }, 0.1)
         .staggerFrom(this.rightSlider.children, 0.5, { x: -10, opacity: 0, ease: Back.easeOut }, 0.1)
-        .to(this.line, 0.5, { opacity: 0 })
+        .to(this.line, 0.5, { opacity: 0.1 })
         .play()
     }
   }

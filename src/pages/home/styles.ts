@@ -6,9 +6,12 @@ export const Name = styled.span`
 
 export const Big = styled.div`
   font-size: 3rem;
-  line-height: 6rem;
+  line-height: 3rem;
+  margin-bottom: 1rem;
+  text-align: right;
 `;
 
-export const Left = styled.div`
-  text-align: right;
+export const Small = styled.div`
+  text-align: ${(props: { align?: string }) => props.align};
+  margin-bottom: 0.5rem;
 `;
