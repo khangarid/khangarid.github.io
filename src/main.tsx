@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 
 import { ApplicationState } from './store';
-import { GlobalStyle } from './styles';
-import { Home } from './pages';
+import { GlobalStyle, ThemeProvider, theme } from './styles';
+import Pages from './pages/index';
 
 interface OwnProps {
   store: Store<ApplicationState>
@@ -17,12 +16,10 @@ class App extends Component<OwnProps> {
 
     return (
       <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <Route key="home" exact path="/" component={Home} />,
-          </Switch>
-        </BrowserRouter>
         <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <Pages />
+        </ThemeProvider>
       </Provider>
     );
   }
