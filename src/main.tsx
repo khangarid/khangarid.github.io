@@ -3,8 +3,9 @@ import { Store } from 'redux';
 import { Provider } from 'react-redux';
 
 import { ApplicationState } from './store';
-import { GlobalStyle, ThemeProvider, theme } from './styles';
+import { ThemeProvider, theme } from './styles';
 import Pages from './pages/index';
+import './styles/global.scss';
 
 interface OwnProps {
   store: Store<ApplicationState>
@@ -16,7 +17,6 @@ class App extends Component<OwnProps> {
 
     return (
       <Provider store={store}>
-        <GlobalStyle />
         <ThemeProvider theme={theme}>
           <Pages />
         </ThemeProvider>
