@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
 
-import { LayoutActionTypes, ThemeColors } from './types'
+import { LayoutActionTypes } from './types'
 
-export const setTheme = (theme: ThemeColors) => action(LayoutActionTypes.SET_THEME, theme)
+export const setNavVisibility = (visibility: boolean) => action(LayoutActionTypes.SET_NAV_VISIBILITY, visibility)

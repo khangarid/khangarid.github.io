@@ -2,12 +2,12 @@ import { Reducer } from 'redux'
 import { LayoutState, LayoutActionTypes } from './types'
 
 const initialState: LayoutState = {
-  theme: 'light'
+  navVisible: false
 }
 
 const reducer: Reducer<LayoutState> = (state = initialState, action) => {
   switch (action.type) {
-    case LayoutActionTypes.SET_THEME: {
+    case LayoutActionTypes.SET_NAV_VISIBILITY: {
       return { ...state, theme: action.payload }
     }
     default: {

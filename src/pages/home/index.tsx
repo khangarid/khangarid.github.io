@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SlideReveal, Link } from '../../components';
+import { Columns, Link } from '../../components';
 import { Name, Big, Small } from './styles';
 
 class Home extends React.Component<any> {
@@ -13,7 +13,7 @@ class Home extends React.Component<any> {
         a web developer.
       </Small>,
       <Small align="right">
-        know more <Link to="/about">about me</Link>
+        know more <Link.Router to="/about">about me</Link.Router>
       </Small>
     ]
   )
@@ -27,14 +27,14 @@ class Home extends React.Component<any> {
         other than that video games and animes are my favorite things.
       </Small>,
       <Small>
-        see my <Link to="/portfolio">portfolio</Link>
+        see my <Link.Router to="/portfolio">portfolio</Link.Router>
       </Small>
     ]
   )
 
   render() {
     return (
-      <SlideReveal left={this.renderLeft()} right={this.renderRight()} />
+      <Columns left={this.renderLeft()} right={this.renderRight()} />
     )
   }
 }

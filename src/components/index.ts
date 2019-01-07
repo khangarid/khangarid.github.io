@@ -1,6 +1,8 @@
-import SlideReveal from './slideReveal/index';
+import Nav from './Nav';
+import Link from './Link'
 
-export { SlideReveal };
+export { Nav, Link };
 
+export * from './Columns';
 export * from './Layout';
-export * from './Link';
+export * from './Circle';

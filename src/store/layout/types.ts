@@ -1,9 +1,7 @@
-export type ThemeColors = 'light' | 'dark'
-
 export enum LayoutActionTypes {
-  SET_THEME = '@@layout/SET_THEME'
+  SET_NAV_VISIBILITY = '@@layout/SET_NAV_VISIBILITY'
 }
 
 export interface LayoutState {
-  readonly theme: ThemeColors
+  readonly navVisible: boolean
 }

@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { TransitionGroup, Transition } from "react-transition-group";
 
 import { fetchRequest } from '../store/projects/actions';
-import { Layout } from '../components';
+import { Layout, Nav } from '../components';
 import Home from './home/index';
 import About from './about/index';
+import animation from '../animations/page';
 
 interface PropsFromDispatch {
   fetchRequest: typeof fetchRequest
@@ -15,18 +17,47 @@ interface PropsFromDispatch {
 type AllProps = PropsFromDispatch;
 
 class Pages extends Component<AllProps> {
+  state = {
+    routes: [
+      { path: "/", name: "Home", Component: Home },
+      { path: "/about", name: "About", Component: About }
+    ]
+  };
+
   componentDidMount = () => {
     this.props.fetchRequest();
   }
 
+  onExit = (node: HTMLElement) => {
+    animation.hide(node);
+  };
+
   render() {
+    const { routes } = this.state;
+
     return (
       <BrowserRouter>
         <Layout>
-          <Switch>
-            <Route key="home" exact path="/" component={Home} />,
-            <Route key="about" exact path="/about" component={About} />,
-          </Switch>
+          <Route
+            render={({ location }) => (
+              <TransitionGroup>
+                <Transition
+                  key={location.key}
+                  timeout={400}
+                  onExit={this.onExit}
+                >
+                  <Switch location={location}>
+                    {routes.map(({ path, Component }) => (
+                      <Route key={path} exact path={path}>
+                        {({ match }) => <Component in={match != null} />}
+                      </Route>
+                    ))}
+                  </Switch>
+                </Transition>
+              </TransitionGroup>
+            )}
+          />
+          <Nav />
         </Layout>
       </BrowserRouter>
     );
