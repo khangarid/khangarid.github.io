@@ -19,7 +19,7 @@ export const revealH = ({
 }): TimelineMax => {
   const tl = new TimelineMax({ paused: true });
 
-  tl.from(line, 0.5, { height: 0, ease: Expo.easeOut })
+  tl.from(line, 0.5, { height: 0, ease: Expo.easeIn })
     .staggerFrom(
       leftSlider.children,
       0.5,
@@ -60,4 +60,73 @@ export const revealC = ({
   return tl;
 }
 
-export default { hide, revealH, revealC };
+export const revealV = ({
+  line,
+  topSlider,
+  bottomSlider
+}: {
+  line: HTMLElement | null;
+  topSlider: HTMLElement | null;
+  bottomSlider: HTMLElement | null;
+}): TimelineMax => {
+  const tl = new TimelineMax({ paused: true });
+
+  if (!line || !topSlider || !bottomSlider) return tl;
+
+  tl.from(line, 0.5, { width: 0, ease: Expo.easeIn })
+    .staggerFrom(
+      topSlider.children,
+      0.5,
+      { y: 10, opacity: 0, ease: Back.easeOut },
+      0.1,
+      "slide"
+    )
+    .staggerFrom(
+      bottomSlider.children,
+      0.5,
+      { y: -10, opacity: 0, ease: Back.easeOut },
+      0.1,
+      "slide"
+    )
+    .to(line, 0.5, { opacity: 0.1 })
+    .play();
+
+  return tl;
+};
+
+export const refreshV = ({
+  topSlider,
+  bottomSlider,
+  onComplete
+}: {
+  topSlider: HTMLElement | null;
+  bottomSlider: HTMLElement | null;
+  onComplete: Function;
+}): TimelineMax => {
+  const tl = new TimelineMax({ paused: true });
+
+  if (!topSlider || !bottomSlider) return tl;
+
+  tl
+    .staggerTo(
+      topSlider.children,
+      0.25,
+      { y: 10, opacity: 0, ease: Back.easeIn },
+      0.05,
+      "slide"
+    )
+    .staggerTo(
+      bottomSlider.children,
+      0.25,
+      { y: -10, opacity: 0, ease: Back.easeIn },
+      0.05,
+      "slide"
+    )
+    .play()
+
+  tl.eventCallback('onComplete', () => onComplete(tl));
+
+  return tl;
+};
+
+export default { hide, revealH, revealC, revealV, refreshV };

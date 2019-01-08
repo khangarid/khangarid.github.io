@@ -8,6 +8,7 @@ import { fetchRequest } from '../store/projects/actions';
 import { Layout, Nav } from '../components';
 import Home from './home/index';
 import About from './about/index';
+import Portfolio from './portfolio/index';
 import animation from '../animations/page';
 
 interface PropsFromDispatch {
@@ -20,7 +21,8 @@ class Pages extends Component<AllProps> {
   state = {
     routes: [
       { path: "/", name: "Home", Component: Home },
-      { path: "/about", name: "About", Component: About }
+      { path: "/about", name: "About", Component: About },
+      { path: "/portfolio", name: "Portfolio", Component: Portfolio }
     ]
   };
 

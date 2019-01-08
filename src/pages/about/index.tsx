@@ -40,7 +40,7 @@ class About extends React.Component<any> {
               I've 2 years of experience with <Emp>web development</Emp>, mostly on <Emp>front end</Emp> side.
             </Item>
             <Item>
-              expertise with JS, React, Redux, CSS, HTML, Node
+              expertise in JS, React, Redux, CSS, HTML, Node
             </Item>
             <Item>
               I'm currently open to new opportunities, please do reach me by&nbsp;

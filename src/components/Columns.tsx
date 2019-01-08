@@ -4,8 +4,8 @@ import styled from '../styles/theme';
 import animation from '../animations/page';
 
 interface OwnProps {
-  left: any,
-  right: any
+  left: React.ReactNode,
+  right: React.ReactNode
 }
 
 class Columns extends React.Component<OwnProps> {
@@ -13,7 +13,7 @@ class Columns extends React.Component<OwnProps> {
   rightSlider: HTMLDivElement | null;
   line: HTMLDivElement | null;
 
-  constructor(props: any) {
+  constructor(props: OwnProps) {
     super(props);
 
     this.leftSlider = null;

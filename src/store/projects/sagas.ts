@@ -7,7 +7,7 @@ const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.jsonbin.
 
 function* handleFetch() {
   try {
-    const res = yield call(callApi, 'get', API_ENDPOINT, '/b/5c2ec51481fe89272a83db53')
+    const res = yield call(callApi, 'get', API_ENDPOINT, '/b/5c2ec51481fe89272a83db53/1')
 
     if (res.error) {
       yield put(fetchError(res.error))
