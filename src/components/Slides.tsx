@@ -17,9 +17,9 @@ const Slides = ({ length, selected, onSelect, onNext, onPrev }: OwnProps) => {
 
     for (let i = 0; i < length; i++) {
       slides.push(
-        <Slide key={i} onClick={() => onSelect(i)}>
+        <Item key={i} onClick={() => onSelect(i)}>
           <Line active={selected === i} />
-        </Slide>
+        </Item>
       )
     }
 
@@ -28,7 +28,13 @@ const Slides = ({ length, selected, onSelect, onNext, onPrev }: OwnProps) => {
 
   return (
     <Container>
+      <Arrow onClick={() => onPrev()} prev>
+        <img src="/icons/right-arrow.svg" alt="Prev" />
+      </Arrow>
       {renderSlides()}
+      <Arrow onClick={() => onNext()}>
+        <img src="/icons/right-arrow.svg" alt="Next" />
+      </Arrow>
     </Container>
   )
 }
@@ -55,21 +61,54 @@ const Line = styled.span`
 
   ${(props: LineProps) => props.active && css`
     background-color: ${props => props.theme.colors.fg1};
-    height: 2px;
+    height: 3px;
   `}
 `;
 
-const Slide = styled.span`
+const Item = styled.span`
   height: 2rem;
   width: 2.5rem;
   padding: 0 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 
   &:hover {
     ${Line} {
       background-color: ${props => props.theme.colors.fg0};
+    }
+  }
+`;
+
+interface ArrowProps {
+  prev?: boolean
+}
+
+const Arrow = styled(Item)`
+  img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: all .2s ease;
+  }
+
+  margin-left: 1.5rem;
+
+  ${(props: ArrowProps) => props.prev && css`
+    transform: rotate(180deg);
+
+    margin: 0 1.5rem 0 0;
+  `}
+
+  &:hover {
+    img {
+      transform: scale(1.1)
+    }
+  }
+
+  &:active {
+    img {
+      transform: scale(0.9);
     }
   }
 `;

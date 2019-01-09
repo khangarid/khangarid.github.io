@@ -8,3 +8,4 @@ export * from './Columns';
 export * from './Layout';
 export * from './Circle';
 export * from './Slides';
+export * from './Video';

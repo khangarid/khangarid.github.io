@@ -1,7 +1,7 @@
 export interface Project extends ApiResponse {
   name: string
   url: string,
-  image: string,
+  video: string,
   techs: string,
   description: string
 }

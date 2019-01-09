@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { Rows, Link, Slides } from "../../components";
+import { Rows, Link, Slides, Video } from "../../components";
 import { ApplicationState } from "../../store";
 import { Project } from "../../store/projects/types";
 import { Title, Description, Techs } from "./styles";
@@ -34,13 +34,15 @@ class Portfolio extends React.Component<AllProps, State> {
   }
 
   changeNum(num: number) {
-    this.setState({ num });
+    const { projects } = this.props;
+
+    if (num >= 0 && num < projects.length) this.setState({ num });
   }
 
   renderTop() {
     const project = this.props.projects[this.state.num];
 
-    return <img src={project.image} alt={project.name} />;
+    return <Video url={project.video} />
   }
 
   renderBottom() {
@@ -51,9 +53,11 @@ class Portfolio extends React.Component<AllProps, State> {
         <Title>{project.name}</Title>
         <Description>{project.description}</Description>
         <Techs>{project.techs}</Techs>
-        <Link.External href={project.url} target="_blank">
-          see more
-        </Link.External>
+        <p>
+          <Link.External href={project.url} target="_blank">
+            see more
+          </Link.External>
+        </p>
       </React.Fragment>
     );
   }

@@ -36,18 +36,25 @@ class Rows extends React.Component<OwnProps, OwnProps> {
   })
 
   componentDidMount() {
-    animation.revealV(this.getRefs())
+    const refs = {
+      topSlider: this.topSlider,
+      bottomSlider: this.bottomSlider,
+      line: this.line
+    }
+
+    animation.revealV(refs);
+
+    this.tl = animation.refreshV(refs);
   }
 
   shouldComponentUpdate(nextProps: OwnProps) {
     if (nextProps.num !== this.props.num) {
-      this.tl = animation.refreshV({
-        ...this.getRefs(),
-        onComplete: (tl: TimelineMax) => {
-          tl.reverse();
-          this.setState({ ...nextProps });
-        }
-      })
+      this.tl.play();
+
+      this.tl.eventCallback('onComplete', () => {
+        this.setState({ ...nextProps });
+        this.tl.reverse();
+      });
 
       return false;
     }
@@ -61,9 +68,9 @@ class Rows extends React.Component<OwnProps, OwnProps> {
     return (
       <Container>
         <TopRow>
-          <Slider ref={el => this.topSlider = el}>
+          <TopContent ref={el => this.topSlider = el}>
             {top}
-          </Slider>
+          </TopContent>
         </TopRow>
         <Divider>
           <Line ref={el => this.line = el}/>
@@ -96,25 +103,19 @@ const Slider = styled.div`
   max-width: 800px;
 `;
 
-const TopRow = styled(Row)`
-  height: 50vh;
-  align-items: flex-end;
-  padding-top: 32px;
+const TopRow = styled.div`
+  height: 60vh;
+`;
 
-  ${Slider} {
-    height: 100%;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+const TopContent = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `;
 
 const Divider = styled.div`
   position: fixed;
-  top: 50%;
+  top: 60%;
   width: 100vw;
   height: 1px;
 `;

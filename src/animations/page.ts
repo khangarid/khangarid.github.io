@@ -55,7 +55,7 @@ export const revealC = ({
   tl
     .to(img, 1, { opacity: 1, ease: Expo.easeOut }, 'reveal')
     .staggerTo(text.children, 0.5, { y: 0, opacity: 1, ease: Back.easeOut }, 0.1, 'reveal')
-    .delay(0.2)
+    .delay(0.05)
 
   return tl;
 }
@@ -96,12 +96,10 @@ export const revealV = ({
 
 export const refreshV = ({
   topSlider,
-  bottomSlider,
-  onComplete
+  bottomSlider
 }: {
   topSlider: HTMLElement | null;
   bottomSlider: HTMLElement | null;
-  onComplete: Function;
 }): TimelineMax => {
   const tl = new TimelineMax({ paused: true });
 
@@ -110,23 +108,36 @@ export const refreshV = ({
   tl
     .staggerTo(
       topSlider.children,
-      0.25,
-      { y: 10, opacity: 0, ease: Back.easeIn },
-      0.05,
+      0.5,
+      { opacity: 0, ease: Back.easeIn },
+      0.1,
       "slide"
     )
     .staggerTo(
       bottomSlider.children,
-      0.25,
+      0.5,
       { y: -10, opacity: 0, ease: Back.easeIn },
-      0.05,
+      0.1,
       "slide"
     )
-    .play()
-
-  tl.eventCallback('onComplete', () => onComplete(tl));
 
   return tl;
 };
 
-export default { hide, revealH, revealC, revealV, refreshV };
+const revealCurtain = (curtain: HTMLElement | null): TimelineMax => {
+  const tl = new TimelineMax({ paused: true });
+
+  if (!curtain) return tl;
+
+  tl.to(curtain, 0.5, { height: 0, ease: Expo.easeOut }).play()
+
+  return tl;
+}
+
+const hideCurtain = (curtain: HTMLElement | null) => {
+  if (curtain) TweenMax.set(curtain, { height: '100%' });
+}
+
+export const curtain = { reveal: revealCurtain, hide: hideCurtain }
+
+export default { hide, revealH, revealC, revealV, refreshV, curtain };
