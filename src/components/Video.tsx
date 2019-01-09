@@ -19,7 +19,7 @@ class Video extends React.Component<OwnProps> {
 
     setTimeout(() => {
       curtain.reveal(this.curtain);
-    }, 500);
+    }, 750);
   }
 
   render() {

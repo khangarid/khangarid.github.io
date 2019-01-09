@@ -129,13 +129,13 @@ const revealCurtain = (curtain: HTMLElement | null): TimelineMax => {
 
   if (!curtain) return tl;
 
-  tl.to(curtain, 0.5, { height: 0, ease: Expo.easeOut }).play()
+  tl.to(curtain, 0.5, { opacity: 0, ease: Expo.easeOut }).play()
 
   return tl;
 }
 
 const hideCurtain = (curtain: HTMLElement | null) => {
-  if (curtain) TweenMax.set(curtain, { height: '100%' });
+  if (curtain) TweenMax.set(curtain, { opacity: 1 });
 }
 
 export const curtain = { reveal: revealCurtain, hide: hideCurtain }
