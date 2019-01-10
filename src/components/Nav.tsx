@@ -56,8 +56,14 @@ const Container = styled.div`
   width: 100%;
   height: 64px;
   line-height: 64px;
-  padding: 0 2.5rem;
+  padding: 0 3rem;
   z-index: 2;
+
+  @media(max-width: 420px) {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 2rem;
+  }
 `;
 
 interface MenuLinkProps {

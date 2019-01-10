@@ -99,12 +99,12 @@ const Row = styled.div`
 `;
 
 const VideoContainer = styled.div`
-  padding: 4rem 1rem 1rem 1rem;
+  padding: 3rem 1rem 1rem 1rem;
   width: 100%;
   max-width: 800px;
 
   @media(max-width: 420px) {
-    padding: 4rem 0.5rem 0.5rem 0.5rem;
+    padding: 2.5rem 0.5rem 0.5rem 0.5rem;
   }
 `;
 
@@ -147,20 +147,14 @@ const TopContent = styled.div`
     background: url('/images/waves.svg') repeat;
 
     @media(max-width: 420px) {
-      opacity: 0.5;
+      opacity: 0.9;
     }
   }
 `;
 
 const Divider = styled.div`
-  position: fixed;
-  top: 60%;
   width: 100vw;
   height: 1px;
-
-  @media(max-width: 420px) {
-    top: 50%;
-  }
 `;
 
 const Line = styled.div`
