@@ -2,6 +2,7 @@ import React from 'react';
 import { TimelineMax } from 'gsap';
 
 import styled from '../../styles/theme';
+import { Wrapper, Container, Text, Item, Emp } from './styles';
 import { Circle, Link } from '../../components';
 import animation from '../../animations/page';
 
@@ -72,34 +73,5 @@ class About extends React.Component<any> {
     )
   }
 }
-
-const Wrapper = styled.div`
-  height: 100vh;
-  overflow: auto;
-  display: flex;
-  justify-content: center;
-
-  @media (min-width: 420px) {
-    align-items: center;
-  }
-`;
-
-const Container = styled.div`
-  padding: 4.5rem 1rem 0 1rem;
-  max-width: 600px;
-  text-align: center;
-`;
-
-const Text = styled.div`
-  margin-top: 2rem;
-`;
-
-const Item = styled.p`
-  color: ${props => props.theme.colors.fg3}
-`;
-
-const Emp = styled.span`
-  color: ${props => props.theme.colors.fg0}
-`;
 
 export default About;

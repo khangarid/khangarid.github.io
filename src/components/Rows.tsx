@@ -69,9 +69,9 @@ class Rows extends React.Component<OwnProps, OwnProps> {
       <Container>
         <TopRow>
           <TopContent ref={el => this.topSlider = el}>
-            <Slider>
+            <VideoContainer>
               {top}
-            </Slider>
+            </VideoContainer>
           </TopContent>
         </TopRow>
         <Divider>
@@ -94,25 +94,38 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-  height: 40vh;
   display: flex;
   justify-content: center;
 `;
 
-const Slider = styled.div`
-  padding: 1rem;
+const VideoContainer = styled.div`
+  padding: 4rem 1rem 1rem 1rem;
   width: 100%;
   max-width: 800px;
+
+  @media(max-width: 420px) {
+    padding: 4rem 0.5rem 0.5rem 0.5rem;
+  }
 `;
 
-const BottomSlider = styled(Slider)`
+const BottomSlider = styled.div`
   height: 40vh;
   overflow: auto;
-  padding-bottom: 3rem;
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem 1rem 3rem 1rem;
+
+  @media(max-width: 420px) {
+    height: 50vh;
+  }
 `;
 
 const TopRow = styled.div`
   height: 60vh;
+
+  @media(max-width: 420px) {
+    height: 50vh;
+  }
 `;
 
 const TopContent = styled.div`
@@ -132,6 +145,10 @@ const TopContent = styled.div`
     height: 100%;
     opacity: 0.1;
     background: url('/images/waves.svg') repeat;
+
+    @media(max-width: 420px) {
+      opacity: 0.5;
+    }
   }
 `;
 
@@ -140,6 +157,10 @@ const Divider = styled.div`
   top: 60%;
   width: 100vw;
   height: 1px;
+
+  @media(max-width: 420px) {
+    top: 50%;
+  }
 `;
 
 const Line = styled.div`
