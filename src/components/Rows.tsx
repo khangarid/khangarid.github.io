@@ -69,16 +69,18 @@ class Rows extends React.Component<OwnProps, OwnProps> {
       <Container>
         <TopRow>
           <TopContent ref={el => this.topSlider = el}>
-            {top}
+            <Slider>
+              {top}
+            </Slider>
           </TopContent>
         </TopRow>
         <Divider>
           <Line ref={el => this.line = el}/>
         </Divider>
         <Row>
-          <Slider ref={el => this.bottomSlider = el}>
+          <BottomSlider ref={el => this.bottomSlider = el}>
             {bottom}
-          </Slider>
+          </BottomSlider>
         </Row>
       </Container>
     )
@@ -92,7 +94,7 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-  min-height: 50vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
 `;
@@ -103,6 +105,12 @@ const Slider = styled.div`
   max-width: 800px;
 `;
 
+const BottomSlider = styled(Slider)`
+  height: 40vh;
+  overflow: auto;
+  padding-bottom: 3rem;
+`;
+
 const TopRow = styled.div`
   height: 60vh;
 `;
@@ -111,6 +119,20 @@ const TopContent = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background: url('/images/waves.svg') repeat;
+  }
 `;
 
 const Divider = styled.div`

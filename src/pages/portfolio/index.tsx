@@ -55,7 +55,7 @@ class Portfolio extends React.Component<AllProps, State> {
         <Techs>{project.techs}</Techs>
         <p>
           <Link.External href={project.url} target="_blank">
-            see more
+            Visit project
           </Link.External>
         </p>
       </React.Fragment>

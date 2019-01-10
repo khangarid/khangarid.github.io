@@ -8,6 +8,14 @@ export const hide = (target: HTMLElement) => {
   });
 };
 
+export const show = (target: HTMLElement) => {
+  return TweenMax.to(target, 0.4, {
+    opacity: 1,
+    y: 0,
+    ease: Expo.easeOut
+  });
+};
+
 export const revealH = ({
   line,
   leftSlider,
@@ -34,7 +42,7 @@ export const revealH = ({
       0.1,
       "slide"
     )
-    .to(line, 0.5, { opacity: 0.1 })
+    .to(line, 0.5, { opacity: 0.2 })
     .play();
 
   return tl;
@@ -74,11 +82,10 @@ export const revealV = ({
   if (!line || !topSlider || !bottomSlider) return tl;
 
   tl.from(line, 0.5, { width: 0, ease: Expo.easeIn })
-    .staggerFrom(
-      topSlider.children,
+    .from(
+      topSlider,
       0.5,
-      { y: 10, opacity: 0, ease: Back.easeOut },
-      0.1,
+      { opacity: 0, ease: Expo.easeOut },
       "slide"
     )
     .staggerFrom(
@@ -88,7 +95,7 @@ export const revealV = ({
       0.1,
       "slide"
     )
-    .to(line, 0.5, { opacity: 0.1 })
+    .to(line, 0.5, { opacity: 0.2 })
     .play();
 
   return tl;
@@ -140,4 +147,4 @@ const hideCurtain = (curtain: HTMLElement | null) => {
 
 export const curtain = { reveal: revealCurtain, hide: hideCurtain }
 
-export default { hide, revealH, revealC, revealV, refreshV, curtain };
+export default { hide, show, revealH, revealC, revealV, refreshV, curtain };

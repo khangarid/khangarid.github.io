@@ -1,6 +1,7 @@
 import React from "react";
 
-import styled, { css } from "../styles/theme";
+import { TimelineMax, Expo } from 'gsap';
+import styled from "../styles/theme";
 
 interface OwnProps {
   children: React.ReactNode;
@@ -9,34 +10,35 @@ interface OwnProps {
 }
 
 class Circle extends React.Component<OwnProps> {
-  state = {
-    animate: false
-  };
+  ellipse: SVGEllipseElement | null = null;
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ animate: true });
-    }, 0);
+    const { duration } = this.props;
+
+    if (this.ellipse) {
+      const tl = new TimelineMax({ paused: true });
+
+      tl
+        .to(this.ellipse, duration, { strokeDashoffset: 0, ease: Expo.easeIn })
+        .to(this.ellipse, duration, { opacity: 0.2, ease: Expo.easeIn})
+        .play();
+    }
 
     setTimeout(() => {
       this.props.onReady();
-    }, this.props.duration)
+    }, duration * 1000)
   }
 
   render() {
-    const { animate } = this.state;
-    const { duration } = this.props;
-
     return (
       <Container>
         <Svg>
           <Ellipse
-            duration={duration}
-            animate={animate}
-            ry="60"
-            rx="60"
-            cy="62.5"
-            cx="62.5"
+            ref={el => this.ellipse = el}
+            ry="90"
+            rx="90"
+            cy="93"
+            cx="93"
             stroke-width="1"
           />
         </Svg>
@@ -46,27 +48,14 @@ class Circle extends React.Component<OwnProps> {
   }
 }
 
-interface EllipseProps {
-  duration: number;
-  animate?: boolean;
-}
-
 const Ellipse = styled.ellipse`
   position: absolute;
   fill: transparent;
-  stroke-dasharray: 377;
-  stroke-dashoffset: 377;
+  stroke-dasharray: 565.5;
+  stroke-dashoffset: 565.5;
   stroke: #f5851f;
+  transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  transform: rotate(-270deg);
-  transition: all ${(props: EllipseProps) => props.duration}ms ease;
-
-  ${(props: EllipseProps) =>
-    props.animate &&
-    css`
-      stroke-dashoffset: 0;
-      transform: rotate(-90deg);
-    `};
 `;
 
 const Svg = styled.svg`
@@ -79,9 +68,8 @@ const Svg = styled.svg`
 const Content = styled.div`
   border-radius: 50%;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
 
   img {
     width: 100%;
@@ -93,8 +81,8 @@ const Content = styled.div`
 const Container = styled.div`
   margin: auto;
   position: relative;
-  width: 124px;
-  height: 124px;
+  width: 186px;
+  height: 186px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -7,9 +7,10 @@ const {
   ThemeProvider
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<Theme>;
 
-const colors = {
+export const colors = {
   bg0: "#0c0507",
   bg1: "#232323",
+  bg2: "#1e0d12",
   fg0: "#f9f9f9",
   fg1: "#f5851f",
   fg2: "#f0780b",

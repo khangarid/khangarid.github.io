@@ -46,6 +46,7 @@ const Container = styled.div`
   justify-content: center;
   padding: 1rem;
   width: 100%;
+  background-color: rgba(0,0,0,0.1);
 `;
 
 interface LineProps {
