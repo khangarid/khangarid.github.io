@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { TransitionGroup, Transition } from "react-transition-group";
+import createHashHistory from 'history/createHashHistory';
 
 import { fetchRequest } from '../store/projects/actions';
 import { Layout, Nav } from '../components';
@@ -16,6 +17,8 @@ interface PropsFromDispatch {
 }
 
 type AllProps = PropsFromDispatch;
+
+const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
 class Pages extends Component<AllProps> {
   state = {
@@ -38,7 +41,7 @@ class Pages extends Component<AllProps> {
     const { routes } = this.state;
 
     return (
-      <BrowserRouter>
+      <Router history={hashHistory}>
         <Layout>
           <Route
             render={({ location }) => (
@@ -61,7 +64,7 @@ class Pages extends Component<AllProps> {
           />
           <Nav />
         </Layout>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
