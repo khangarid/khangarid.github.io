@@ -1,14 +1,16 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const NODE_ENV = process.env.NODE_ENV;
+const devMode = NODE_ENV === 'development';
+
 module.exports = {
-  mode: 'production',
-  stats: 'errors-only',
-  bail: true,
+  mode: NODE_ENV,
   entry: './src/scripts/index.js',
-  devtool: 'source-map',
+  devtool: devMode ? 'cheap-eval-source-map' : 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -19,6 +21,7 @@ module.exports = {
     }
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, './public'), to: 'public' }
     ]),
@@ -32,18 +35,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.mjs$/,
-        include: /node_modules/,
-        type: 'javascript/auto'
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
-        test: /\.(js)$/,
+        test: /\.s?css/,
         include: path.resolve(__dirname, './src'),
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.s?css/i,
-        use : [
+        use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
