@@ -1,0 +1,18 @@
+.about {
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.about p {
+  margin: 2rem 0;
+  max-width: 30rem;
+}
+
+.social li {
+  padding: 0 1rem;
+  display: inline-block;
+}

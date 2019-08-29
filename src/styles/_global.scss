@@ -1,0 +1,33 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  background-color: #fafafa;
+  color: #111;
+}
+
+p {
+  line-height: 2;
+  color: #222;
+}
+
+a {
+  color: #6bb9f0;
+  text-decoration: none;
+  
+  img {
+    vertical-align: middle;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-title {
+  font-family: 'IBM Plex Mono', monospace; 
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
+}

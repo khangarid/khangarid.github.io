@@ -1,0 +1,32 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 45vh;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  margin: 2rem 0;
+  max-width: 30rem;
+  font-family: 'IBM Plex Mono', monospace; 
+  text-align: center;
+}
+
+.hero__paragraph {
+  margin: 0;
+}
+
+.stack__item {
+  position: relative;
+  padding-right: 1rem;
+  display: inline-block;
+}
+
+.stack__item:not(:last-child):after {
+  content: '/';
+  position: absolute;
+  right: 0.2rem;
+  color: #ccc;
+}
