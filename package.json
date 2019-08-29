@@ -24,6 +24,6 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
-  "browserslist": "> 0.25%, not dead",
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": "> 0.25%, not dead"
 }
