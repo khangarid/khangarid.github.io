@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
-      { from: path.resolve(__dirname, './public'), to: 'public' }
+      { from: path.resolve(__dirname, './src/assets'), to: 'assets' }
     ]),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html')

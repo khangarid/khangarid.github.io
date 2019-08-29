@@ -13,52 +13,61 @@
 
   <body>
     <section class="hero">
-      <h4>i'm a</h4>
-      <h2>full stack web dev</h2>
-      <p>with 3 years' experience of</p>
-      <ul class="stack">
-        <li>javascript</li>
-        <li>mongo</li>
-        <li>mysql</li>
-        <li>node</li>
-        <li>express</li>
-        <li>react</li>
-        <li>angular</li>
-      </ul>
-    </section>
-
-    <h4>
-      <a href="#">
-        <img src="assets/link-2.svg"/>
-      </a>
-      projects:
-    </h4>
-    <section class="projects">
-      <div class="browser-mockup">
-        <img src="http://placehold.it/500x300/fff/eee" />
-      </div>
-      <div class="browser-mockup">
-        <img src="http://placehold.it/500x300/fff/eee" />
-      </div>
-      <div class="browser-mockup">
-        <img src="http://placehold.it/500x300/fff/eee" />
-      </div>
-      <div class="browser-mockup">
-        <img src="http://placehold.it/500x300/fff/eee" />
-      </div>
-      <div class="browser-mockup">
-        <img src="http://placehold.it/500x300/fff/eee" />
-      </div>
-    </section>
-
-    <section class="about">
-      <h4>
+      <h4 class="section-title">
         <a href="#">
           <img src="assets/link-2.svg"/>
         </a>
-        Khangarid Davaadorj:
+        i'm a
       </h4>
-      <p>
+      <h2 class="hero__title">full stack web dev</h2>
+      <p class="hero__paragraph">with 3 years' experience of</p>
+      <ul class="stack">
+        <li class="stack__item">javascript</li>
+        <li class="stack__item">mongodb</li>
+        <li class="stack__item">mysql</li>
+        <li class="stack__item">node</li>
+        <li class="stack__item">express</li>
+        <li class="stack__item">react</li>
+        <li class="stack__item">angular</li>
+      </ul>
+    </section>
+
+    <h4 class="section-title">
+      <a href="#">
+        <img src="assets/link-2.svg"/>
+      </a>
+      projects
+    </h4>
+    <section class="projects">
+      <div class="browser" data-modal-trigger="first">
+        <img src="http://placehold.it/500x300/fff/eee" />
+      </div>
+      <div class="browser" data-modal-trigger="second">
+        <img src="http://placehold.it/500x300/fff/eee" />
+      </div>
+      <div class="browser">
+        <img src="http://placehold.it/500x300/fff/eee" />
+      </div>
+      <div class="browser">
+        <img src="http://placehold.it/500x300/fff/eee" />
+      </div>
+      <div class="browser">
+        <img src="http://placehold.it/500x300/fff/eee" />
+      </div>
+    </section>
+
+    <div class="modal first" data-modal="first">
+      somethings
+    </div>
+
+    <section class="about">
+      <h4 class="section-title">
+        <a href="#">
+          <img src="assets/link-2.svg"/>
+        </a>
+        Khangarid Davaadorj
+      </h4>
+      <p class="about__paragraph">
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
       </p>
       <ul class="social">
