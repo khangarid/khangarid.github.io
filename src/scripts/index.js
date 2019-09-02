@@ -1,2 +1,4 @@
 import '../styles/main.scss';
-import './modal';
+import { Modal } from './modal';
+
+new Modal('projects');

@@ -20,13 +20,16 @@
 
 .stack__item {
   position: relative;
-  padding-right: 1rem;
   display: inline-block;
 }
 
-.stack__item:not(:last-child):after {
-  content: '/';
-  position: absolute;
-  right: 0.2rem;
-  color: #ccc;
+.stack__item:not(:last-child) {
+  padding-right: 1rem;
+
+  &:after {
+    content: '/';
+    position: absolute;
+    right: 0.2rem;
+    color: #ccc;
+  }
 }

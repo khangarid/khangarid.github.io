@@ -1,0 +1,17 @@
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 15%;
+  padding: 0;
+  transition: background-color .2s ease;
+
+  img {
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  &:hover {
+    background-color: rgba(0,0,0,.075)
+  }
+}
