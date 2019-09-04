@@ -8,11 +8,13 @@
   background-color: #fff;
   overflow-y: auto;
   display: none;
+  transition: all .1s ease;
 }
 
 .modal--visible {
   position: fixed;
   display: flex;
+  z-index: 1;
 }
 
 .modal__content {

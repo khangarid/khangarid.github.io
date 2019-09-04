@@ -1,28 +1,26 @@
 .browser {
-  border-top: 2rem solid #f1f1f1;
+  border-top: 1.5rem solid #ebebeb;
   box-shadow: 
-    0 0 10px -5px rgba(0,0,0,.15),
-    0 26px 40px -24px rgba(0,0,0,.15);
+    0 0 10px -5px rgba(0,0,0,.2),
+    0 26px 40px -24px rgba(0,0,0,.2);
 
   position: relative;
   border-radius: 7px;
   background-color: #fff;
   cursor: pointer;
-  transition: all .2s ease;
-  transform: scale(1);
+  transition: box-shadow .2s ease;
 
   &:hover {
-    transform: scale(1.0075);
     box-shadow: 
-      0 0 20px -10px rgba(0,0,0,.125),
-      0 40px 68px -37px rgba(0,0,0,.125);
+      0 0 20px -10px rgba(0,0,0,.25),
+      0 40px 68px -37px rgba(0,0,0,.25);
   }
 
   &:before {
     display: block;
     position: absolute;
     content: '';
-    top: -1.25rem;
+    top: -1rem;
     left: -.5rem;
     width: .5rem;
     height: .5rem;
@@ -41,4 +39,15 @@
   //   border-radius: 2px;
   //   background-color: white;
   // }
+}
+
+.browser__inner {
+  width: 500px;
+  height: 255px;
+  overflow: hidden;
+
+  > img {
+    width: 100%;
+    display: block;
+  }
 }
