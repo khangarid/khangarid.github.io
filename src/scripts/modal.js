@@ -1,6 +1,7 @@
 const modalSelector = 'data-modal';
 const contentSelector = 'data-modal-content';
 const triggerSelector = 'data-modal-trigger';
+const closeButtonSelector = 'data-modal-close';
 const visibleBodyClass = 'modal-overlay';
 const modalClass = 'modal';
 const modalVisibleClass = 'modal--visible'
@@ -16,12 +17,13 @@ export function Modal(modalName) {
   this.contents = this.modal.querySelectorAll(`[${contentSelector}]`)
   this.triggers = document.querySelectorAll(`[${triggerSelector}=${modalName}]`);
   this.body = document.querySelector('body');
+  this.closeButton = document.querySelector(`[${closeButtonSelector}]`);
 
   /**
    * Add CSS classes
    */
   this.modal.classList.add(modalClass);
-  this.contents.classList.add(contentClass);
+  this.contents.forEach(c => c.classList.add(contentClass));
 
   /**
    * Listen to trigger clicks
@@ -31,6 +33,11 @@ export function Modal(modalName) {
   );
 
   /**
+   * Toggle modal on closeButton click
+   */
+  this.closeButton.addEventListener('click', (e) => this.toggleModal(e))
+
+  /**
    * Toggle modal on trigger click
    */
   this.handleTriggerClick = (e) => {
@@ -38,16 +45,20 @@ export function Modal(modalName) {
       .closest(`[${triggerSelector}]`)
       .getAttribute('href');
 
-    this.toggle(target);
+    this.toggleModal();
+    this.showContent(target);
   }
+
 
   /**
    * Toggles modal and shows target content
    */
-  this.toggle = (contentName) => {
+  this.toggleModal = () => {
     this.modal.classList.toggle(modalVisibleClass);
     this.body.classList.toggle(visibleBodyClass);
+  }
 
+  this.showContent = (contentName) => {
     this.contents.forEach(content => {
       const name = content.getAttribute(contentSelector);
 
