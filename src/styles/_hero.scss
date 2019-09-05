@@ -3,17 +3,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 45vh;
+  min-height: 35vh;
+  max-width: 35rem;
+  margin: 0 auto;
 }
 
 .hero__title {
   font-size: 3.2rem;
   margin: 2rem 0;
-  max-width: 30rem;
   font-family: 'IBM Plex Mono', monospace; 
   text-align: center;
 }
 
 .hero__paragraph {
   margin: 0;
+  max-width: 28rem;
+  text-align: center;
 }

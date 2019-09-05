@@ -5,7 +5,7 @@ body {
   color: #111;
 }
 
-p {
+ul, p {
   line-height: 1.58;
   color: #222;
 }
@@ -32,11 +32,16 @@ hr {
   margin: 2rem auto;
 }
 
+section {
+  padding: 3rem 0;
+}
+
 .section-title {
   font-family: 'IBM Plex Mono', monospace; 
   text-align: center;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 /*
@@ -58,6 +63,8 @@ hr {
   li {
     position: relative;
     display: inline-block;
+    font-weight: 600;
+    color: #333;
   }
   
   li:not(:last-child) {

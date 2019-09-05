@@ -1,6 +1,5 @@
 const modalSelector = 'data-modal';
 const contentSelector = 'data-modal-content';
-const triggerSelector = 'data-modal-trigger';
 const closeButtonSelector = 'data-modal-close';
 const visibleBodyClass = 'modal-overlay';
 const modalClass = 'modal';
@@ -15,56 +14,65 @@ export function Modal(modalName) {
    */
   this.modal = document.querySelector(`[${modalSelector}='${modalName}']`);
   this.contents = this.modal.querySelectorAll(`[${contentSelector}]`)
-  this.triggers = document.querySelectorAll(`[${triggerSelector}=${modalName}]`);
   this.body = document.querySelector('body');
   this.closeButton = document.querySelector(`[${closeButtonSelector}]`);
-
-  /**
-   * Add CSS classes
-   */
+  
+  this.modalOpen = false;
+  
+  // Add CSS classes
   this.modal.classList.add(modalClass);
   this.contents.forEach(c => c.classList.add(contentClass));
 
-  /**
-   * Listen to trigger clicks
-   */
-  this.triggers.forEach(el => 
-    el.addEventListener('click', (e) => this.handleTriggerClick(e))
-  );
+  // Immediately open modal if needed
+  this.handleHashChange();
 
-  /**
-   * Toggle modal on closeButton click
-   */
-  this.closeButton.addEventListener('click', (e) => this.toggleModal(e))
-
-  /**
-   * Toggle modal on trigger click
-   */
-  this.handleTriggerClick = (e) => {
-    const target = e.target
-      .closest(`[${triggerSelector}]`)
-      .getAttribute('href');
-
-    this.toggleModal();
-    this.showContent(target);
-  }
+  // Init event listeners
+  this.addEventListeners();
+}
 
 
-  /**
-   * Toggles modal and shows target content
-   */
-  this.toggleModal = () => {
-    this.modal.classList.toggle(modalVisibleClass);
-    this.body.classList.toggle(visibleBodyClass);
-  }
+Modal.prototype.addEventListeners = function() {
+  // Close modal on closeButton click
+  this.closeButton.addEventListener('click', () => history.back());
 
-  this.showContent = (contentName) => {
-    this.contents.forEach(content => {
-      const name = content.getAttribute(contentSelector);
+  // Close modal on Esc press
+  document.addEventListener("keydown", e => {
+    this.modalOpen && e.key === 'Escape' ? history.back() : null
+  })
 
-      `#${name}` === contentName
-        ? content.classList.add(contentActiveClass)
-        : content.classList.remove(contentActiveClass)
-    })
-  }
+  // Listen to hash change
+  window.addEventListener("hashchange", () => this.handleHashChange());
+}
+
+/**
+ * If hash equals to one of modal contents show modal 
+ * and corresponding content
+ */
+Modal.prototype.handleHashChange = function() {
+  const hash = location.hash.split('#')[1];
+
+  const content = [...this.contents].find(c => 
+    c.getAttribute(contentSelector) === hash)
+
+  if (content == null) return this.closeModal();
+
+  this.openModal();
+  this.showContent(content);
+}
+
+Modal.prototype.openModal = function() {
+  this.modalOpen = true;
+  this.modal.classList.add(modalVisibleClass);
+  this.body.classList.add(visibleBodyClass);
+}
+
+Modal.prototype.closeModal = function() {
+  this.modalOpen = false;
+  this.modal.classList.remove(modalVisibleClass);
+  this.body.classList.remove(visibleBodyClass);
+}
+
+Modal.prototype.showContent = function(content) {
+  this.contents.forEach(c => c.classList.remove(contentActiveClass));
+  content.classList.add(contentActiveClass)
 }

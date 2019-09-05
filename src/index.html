@@ -14,33 +14,34 @@
   <body>
     <section class="hero">
       <h4 class="section-title">
-        <a href="#" aria-label="link to section">
-          <img alt="Link" src="assets/link-2.svg"/>
-        </a>
-        i'm a
+        I'm a
       </h4>
-      <h2 class="hero__title">full stack web developer</h2>
-      <p class="hero__paragraph">with 3 years of experience</p>
+      <h2 class="hero__title">Software Engineer</h2>
+      <p class="hero__paragraph">based in U.S with 3 years of professional experience in Full Stack Web Development</p>
       
     </section>
 
-    <h4 class="section-title">
-      <a href="#" aria-label="link to section">
-        <img alt="Link" src="assets/link-2.svg"/>
-      </a>
-      projects
-    </h4>
-    <section class="projects">
-      <a class="browser" data-modal-trigger="projects" href="#first" aria-label="First project">
-        <div class="browser__inner">
-          <img alt="Placeholder" src="assets/erxes.png" />
-        </div>
-      </a>
-      <a class="browser" data-modal-trigger="projects" href="#second" aria-label="Second project">
-        <div class="browser__inner">
-          <img alt="Placeholder" src="assets/gerege.png" />
-        </div>
-      </a>
+    <section>
+      <h4 class="section-title">
+        projects
+      </h4>
+      <div class="projects">
+        <a class="browser" href="#erxes" aria-label="Project Erxes">
+          <div class="browser__inner">
+            <img alt="erxes web page" src="assets/erxes.png" />
+          </div>
+        </a>
+        <a class="browser" href="#gerege" aria-label="Project Gerege">
+          <div class="browser__inner">
+            <img alt="gerege web page" src="assets/gerege.png" />
+          </div>
+        </a>
+        <a class="browser" href="#monnis" aria-label="Project Monnis Motors">
+          <div class="browser__inner">
+            <img alt="monnis motors web page" src="assets/monnis.png" />
+          </div>
+        </a>
+      </div>
     </section>
 
     <div data-modal="projects" class="modal">
@@ -49,7 +50,7 @@
       </button>
 
       <!-- erxes -->
-      <div data-modal-content="first" class="project erxes">
+      <div data-modal-content="erxes" class="project erxes">
         <h1>erxes</h1>
         <h2>Open Source Growth Marketing Platform</h2>
         <p>
@@ -60,7 +61,7 @@
           community-driven ecosystem.
         </p>
         <hr />
-        <h2>Role</h2>
+        <!-- <h2>Role</h2>
         <p>
           Purpose of the project: Why did you start the project.
           Objective: What you accomplished.
@@ -71,7 +72,7 @@
         <p>
           Your role: How you contributed to the team or project.
           Final product overview: Pictures, videos, links, etc.
-        </p>
+        </p> -->
         <ul class="links project__links">
           <li>
             <a target="_blank" href="https://github.com/erxes/erxes">
@@ -79,7 +80,7 @@
             </a>
           </li>
           <li>
-            <a target="_blank" href="http://erxes.io">
+            <a target="_blank" href="https://erxes.io">
               <img src="assets/external-link.svg" alt="Github" />
             </a>
           </li>
@@ -87,51 +88,92 @@
       </div>
 
       <!-- Gerege -->
-      <div data-modal-content="second">
+      <div data-modal-content="gerege" class="project">
         <h1>Gerege</h1>
         <h2>Content Management System</h2>
         <p>
-
+          I'm yet to write content here...
         </p>
+        <hr />
+        <ul class="links project__links">
+          <li>
+            <a target="_blank" href="https://gerege.agency">
+              <img src="assets/external-link.svg" alt="Github" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Monnis Motors -->
+      <div data-modal-content="monnis" class="project">
+        <h1>Monnis Motors</h1>
+        <h2>Nissan Mongolia</h2>
+        <p>
+          Corporate website 
+        </p>
+        <hr />
+        <ul class="links project__links">
+          <li>
+            <a target="_blank" href="https://monnismotors.mn/">
+              <img src="assets/external-link.svg" alt="Github" />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
     <section class="about">
-      <h4 class="section-title">
-        <a href="#" aria-label="link to section">
-          <img alt="Link" src="assets/link-2.svg"/>
-        </a>
-        Khangarid Davaadorj
-      </h4>
-      <p class="about__paragraph">
-        I've experties of: 
-      </p>
-      <ul class="tags">
-        <li>javascript</li>
-        <li>mongodb</li>
-        <li>mysql</li>
-        <li>node</li>
-        <li>express</li>
-        <li>react</li>
-        <li>angular</li>
-      </ul>
-      <ul class="links">
-        <li>
-          <a href="https://github.com/khangarid" aria-label="github">
-            <img alt="Github" src="assets/github.svg" />
-          </a>
-        </li>
-        <li>
-          <a href="https://linkedin.com/in/khangarid-davaadorj/" aria-label="linkedin">
-            <img alt="LinkedIn" src="assets/linkedin.svg" />
-          </a>
-        </li>
-        <li>
-          <a href="mailto:khangarid.davaadorj@gmail.com" aria-label="email">
-            <img alt="Email" src="assets/mail.svg" />
-          </a>
-        </li>
-      </ul>
+      <div class="about__inner">
+        <h4 class="section-title">
+          Khangarid Davaadorj
+        </h4>
+        <p class="about__paragraph">
+          I aspire to write a good code. 
+          But it's never good enough so I've been constantly learning 
+          to improve my skill.
+        </p>
+        <p>
+          Solving problems is love. 
+          I usually find myself thrilled when facing challenges and 
+          overcoming them is the best thing next to a pizza.
+        </p>
+        <hr />
+        <p>
+          I've been professionally developing web applications for last 
+          3 years and most of my experience is on:
+        </p>
+        <ul class="tags">
+          <li>JavaScipt</li>
+          <li>TypeScript</li>
+          <li>Node</li>
+          <li>React</li>
+          <li>Angular</li>
+          <li>MySQL</li>
+        </ul>
+
+        <p>
+          I've B.S. in Computer Science and M.S. in progress. Currently working as 
+          a Full Stack Web Developer. 
+        </p>
+
+        <ul class="links">
+          <li>
+            <a href="https://github.com/khangarid" aria-label="github">
+              <img alt="Github" src="assets/github.svg" />
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/khangarid-davaadorj/" aria-label="linkedin">
+              <img alt="LinkedIn" src="assets/linkedin.svg" />
+            </a>
+          </li>
+          <li>
+            <a href="mailto:khangarid.davaadorj@gmail.com" aria-label="email">
+              <img alt="Email" src="assets/mail.svg" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
   </body>
 </html>
