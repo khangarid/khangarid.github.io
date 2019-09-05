@@ -1,2 +1,18 @@
 # khangarid.github.io
-Portfolio
+
+Portfolio website.
+
+## Installation
+
+```bash
+yarn install
+yarn start
+```
+
+## Deploy
+
+Build and push `dist/` to master branch.
+
+```
+yarn deploy
+```
