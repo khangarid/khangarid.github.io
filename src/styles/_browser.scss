@@ -42,9 +42,25 @@
 }
 
 .browser__inner {
-  width: 500px;
-  height: 255px;
+  max-width: 100%;
+  width: 31rem;
+  height: 16rem;
   overflow: hidden;
+
+  @media(max-width: 80rem) {
+    width: 25rem;
+    height: 13rem;
+  }
+
+  @media(max-width: 70rem) {
+    width: 20rem;
+    height: 11rem;
+  }
+
+  @media(max-width: 50rem) {
+    width: 100%;
+    height: auto;
+  } 
 
   > img {
     width: 100%;
