@@ -35,6 +35,10 @@ hr {
 
 section {
   padding: 3rem 1rem;
+
+  @media(max-width: 50rem) {
+    padding: 2rem 1rem;
+  }
 }
 
 .section-title {
