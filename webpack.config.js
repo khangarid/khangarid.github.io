@@ -2,7 +2,11 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 const devMode = NODE_ENV === 'development';
@@ -20,6 +24,9 @@ module.exports = {
       '~': path.resolve(__dirname, './src')
     }
   },
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
@@ -29,8 +36,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html')
     }),
+    new PreloadWebpackPlugin({
+      include: 'allAssets',
+      fileWhitelist: [/(\.[0-9a-f]+)?\.css$/]
+    }),
     new MiniCssExtractPlugin({
-      filename: 'bundle.css'
+      filename: 'main.css'
     })
   ],
   module: {

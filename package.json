@@ -6,7 +6,7 @@
   "homepage": "https://khangarid.github.io",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "start": "NODE_ENV=development webpack-dev-server --open --config webpack.config.js",
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist -b master"
   },
@@ -18,11 +18,15 @@
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "gh-pages": "^2.1.1",
+    "html-webpack-exclude-assets-plugin": "^0.0.7",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "preload-webpack-plugin": "^3.0.0-beta.4",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.0.1",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
