@@ -2,4 +2,4 @@
 
 ### Portfolio website
 
-This is a `build` branch please see `dev` for code.
+Code on `dev` branch.
