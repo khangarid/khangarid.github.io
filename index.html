@@ -1,200 +1,432 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132428180-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-132428180-1');
-    </script>
-
-    <title>Khangarid Davaadorj</title>
+<html lang="mn">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="author" content="Khangarid">
-    <meta name="description" content="Full Stack Developer">
-    <meta name="keywords" content="developer,full stack,javascript,js">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="manifest" href="assets/site.webmanifest">
-  <link href="main.css" rel="stylesheet"><link as="style" href="main.css" rel="preload"></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шувуу - Цаг захиалгын систем</title>
 
-  <body>
-    <section class="hero">
-      <h4 class="section-title">
-        I'm a:
-      </h4>
-      <h2 class="hero__title">Software Engineer</h2>
-      <p class="hero__paragraph">with 3 years of professional experience in Full Stack Web Development</p>
-      
-    </section>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <section>
-      <h4 class="section-title">
-        Projects:
-      </h4>
-      <div class="projects">
-        <a class="browser" href="#erxes" aria-label="Project Erxes">
-          <div class="browser__title">
-            erxes CRM
-          </div>
-          <div class="browser__inner">
-            <img alt="erxes web page" src="assets/images/erxes.webp" />
-          </div>
-        </a>
-        <a class="browser" href="#gerege" aria-label="Project Gerege">
-          <div class="browser__title">
-            Gerege CMS
-          </div>
-          <div class="browser__inner">
-            <img alt="gerege web page" src="assets/images/gerege.webp" />
-          </div>
-        </a>
-        <a class="browser" href="#monnis" aria-label="Project Monnis Motors">
-          <div class="browser__title">
-            Nissan Mongolia
-          </div>
-          <div class="browser__inner">
-            <img alt="monnis motors web page" src="assets/images/monnis.webp" />
-          </div>
-        </a>
-      </div>
-    </section>
+    <style>
+        :root {
+            --primary-color: #0085f2;
+            --secondary-color: #f0f8ff;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+        }
 
-    <div data-modal="projects" class="modal">
-      <button class="btn modal__close" data-modal-close>
-        <img alt="Close" src="assets/icons/x.svg"/>
-      </button>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+        }
 
-      <!-- erxes -->
-      <div data-modal-content="erxes" class="project erxes">
-        <h1>erxes</h1>
-        <h2>Open Source Growth Marketing Platform</h2>
-        <p>
-          erxes helps you attract and engage more customers while giving 
-          you high lead conversion. With erxes, all your marketing, sales 
-          and customer service tools are merged into one platform for 
-          greater output. Replace Hubspot with the mission and 
-          community-driven ecosystem.
-        </p>
-        <hr />
-        <!-- <h2>Role</h2>
-        <p>
-          Purpose of the project: Why did you start the project.
-          Objective: What you accomplished.
-          Approach: How you accomplished it.
-          Project duration: How long it took you.
-        </p>
-        <h2>Technical</h2>
-        <p>
-          Your role: How you contributed to the team or project.
-          Final product overview: Pictures, videos, links, etc.
-        </p> -->
-        <ul class="links project__links">
-          <li>
-            <a target="_blank" href="https://github.com/erxes/erxes" rel="noreferrer">
-              <img src="assets/icons/github.svg" alt="Github" />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://erxes.io" rel="noreferrer">
-              <img src="assets/icons/external-link.svg" alt="Github" />
-            </a>
-          </li>
-        </ul>
-      </div>
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--primary-color);
+        }
 
-      <!-- Gerege -->
-      <div data-modal-content="gerege" class="project">
-        <h1>Gerege</h1>
-        <h2>Content Management System</h2>
-        <p>
-          Gerege is a built in-house CMS which hosts over 100 websites and apps.
-        </p>
-        <hr />
-        <ul class="links project__links">
-          <li>
-            <a target="_blank" href="http://gerege.agency" rel="noreferrer">
-              <img src="assets/icons/external-link.svg" alt="Github" />
-            </a>
-          </li>
-        </ul>
-      </div>
+        .navbar-brand span {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
 
-      <!-- Monnis Motors -->
-      <div data-modal-content="monnis" class="project">
-        <h1>Monnis Motors</h1>
-        <h2>Nissan Mongolia Website</h2>
-        <p>
-          A corporate website for Nissan Mongolia, built with Gerege CMS.
-        </p>
-        <hr />
-        <ul class="links project__links">
-          <li>
-            <a target="_blank" href="http://monnismotors.mn/" rel="noreferrer">
-              <img src="assets/icons/external-link.svg" alt="Github" />
-            </a>
-          </li>
-        </ul>
-      </div>
+        .view-switcher {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-container {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+            background-color: #006ac0;
+            border-color: #006ac0;
+            box-shadow: none !important;
+        }
+        
+        /* Step Wizard */
+        .step-wizard {
+            position: relative;
+            margin: 40px 0;
+        }
+        .step-wizard .progress { height: 6px; }
+        .step-wizard .progress-bar { background-color: var(--primary-color); transition: width 0.4s ease-in-out; }
+        .step-wizard .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: -22px;
+        }
+        .step-wizard .step-dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 3px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem; /* Bigger Icons */
+            color: var(--border-color);
+        }
+        .step-wizard .step-dot.active { border-color: var(--primary-color); color: var(--primary-color); }
+        .step-wizard .step-dot.completed { border-color: var(--primary-color); background-color: var(--primary-color); color: #fff; }
+
+        .selection-card { cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent; }
+        .selection-card.selected { border-color: var(--primary-color); box-shadow: 0 4px 16px rgba(0, 133, 242, 0.2); }
+        .time-slot { margin: 5px; }
+        .time-slot.disabled { text-decoration: line-through; background-color: var(--light-gray); }
+
+        /* Customer Calendar */
+        #customer-calendar { border-radius: 8px; padding: 10px; background-color: #fff; }
+        #customer-calendar .calendar-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0;}
+        #customer-calendar .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+        #customer-calendar .calendar-day, #customer-calendar .calendar-weekday { text-align: center; padding: 10px 5px; }
+        #customer-calendar .calendar-weekday { font-weight: 600; color: #999; }
+        #customer-calendar .calendar-day { cursor: pointer; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; margin: auto;}
+        #customer-calendar .calendar-day:not(.disabled):hover { background-color: var(--secondary-color); }
+        #customer-calendar .calendar-day.selected { background-color: var(--primary-color); color: #fff; font-weight: bold; }
+        #customer-calendar .calendar-day.today { border: 2px solid var(--primary-color); }
+        #customer-calendar .calendar-day.disabled { color: #ccc; text-decoration: line-through; cursor: not-allowed; }
+        
+        .confirmation-screen { text-align: center; }
+        .confirmation-screen .icon { font-size: 5rem; color: #28a745; }
+        
+        /* Business View */
+        .nav-pills .nav-link { color: var(--text-color); font-weight: 500; }
+        .nav-pills .nav-link.active { background-color: var(--primary-color); color: #fff; box-shadow: 0 2px 8px rgba(0, 133, 242, 0.3); }
+        .fc-day-sun a, .fc-day-sat a { color: #dc3545 !important; }
+        .fc-event{ cursor: pointer; }
+        .fc-event-title { white-space: normal; }
+        .fc .fc-toolbar-title { font-size: 1.25rem; }
+        .fc .fc-button-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+        .fc .fc-daygrid-day.fc-day-today { background: var(--secondary-color); }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSuIhZGceUwK1lICLhgVYJfIU3oFx8ZCMR0A&s" alt="Logo"><span>Шувуу</span></a>
+   
+        </div>
+    </nav>
+
+    <div class="view-switcher">
+        <div class="btn-group" role="group"><button type="button" id="customerViewBtn" class="btn btn-primary">Үйлчлүүлэгчийн хэсэг</button><button type="button" id="businessViewBtn" class="btn btn-outline-primary">Бизнесийн хэсэг</button></div>
     </div>
 
-    <section class="about">
-      <div class="about__inner">
-        <h4 class="section-title">
-          Khangarid Davaadorj:
-        </h4>
-        <p class="about__paragraph">
-          I aspire to write a good code. 
-          But it's never good enough so I've been constantly learning 
-          to improve my skill.
-        </p>
-        <p>
-          Solving problems is love. 
-          I usually find myself thrilled when facing challenges, and 
-          overcoming them is the best thing next to a pizza.
-        </p>
-        <hr />
-        <p>
-          I've been professionally developing web applications for last 
-          3 years and most of my experience is on:
-        </p>
-        <ul class="tags">
-          <li>JavaScipt</li>
-          <li>TypeScript</li>
-          <li>Node</li>
-          <li>React</li>
-          <li>Angular</li>
-          <li>MySQL</li>
-        </ul>
+    <div class="container main-container">
+        <div id="customerView">
+            <div class="row justify-content-center"><div class="col-lg-8 col-md-10">
+                <div class="step-wizard">
+                    <div class="progress"><div class="progress-bar" role="progressbar"></div></div>
+                    <div class="step-indicator">
+                        <div class="step-dot" data-step="1"><i class="bi bi-card-checklist"></i></div>
+                        <div class="step-dot" data-step="2"><i class="bi bi-calendar-check"></i></div>
+                        <div class="step-dot" data-step="3"><i class="bi bi-person-badge"></i></div>
+                        <div class="step-dot" data-step="4"><i class="bi bi-credit-card"></i></div>
+                        <div class="step-dot" data-step="5"><i class="bi bi-check-circle"></i></div>
+                    </div>
+                </div>
+                <div id="step1" class="step-content card p-4">
+                    <div class="text-center mb-4"><img src="https://www.creativefabrica.com/wp-content/uploads/2019/03/Women-face-hair-salon-logo-vector-by-DEEMKA-STUDIO-1.jpg" class="rounded-circle mb-3" alt="Business Logo" style="width: 100px; height: 100px; object-fit: cover;"><h4>Гоо Сайхны Салон</h4><p class="text-muted"><i class="bi bi-geo-alt-fill"></i> Улаанбаатар, Сүхбаатар дүүрэг, 1-р хороо</p></div><hr>
+                    <h5 class="mb-3">1. Үйлчилгээ сонгоно уу</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><div class="card selection-card p-3" onclick="selectService(this)"><h6><i class="bi bi-scissors"></i> Эмэгтэй үс засалт</h6><div class="d-flex justify-content-between text-muted"><small>Үргэлжлэх хугацаа: 45 мин</small><small>Үнэ: 35,000₮</small></div></div></div>
+                        <div class="col-md-6 mb-3"><div class="card selection-card p-3" onclick="selectService(this)"><h6><i class="bi bi-hand-thumbs-up-fill"></i> Маникюр</h6><div class="d-flex justify-content-between text-muted"><small>Үргэлжлэх хугацаа: 60 мин</small><small>Үнэ: 50,000₮</small></div></div></div>
+                        <div class="col-md-6 mb-3"><div class="card selection-card p-3" onclick="selectService(this)"><h6><i class="bi bi-paint-bucket"></i> Нүүр будалт</h6><div class="d-flex justify-content-between text-muted"><small>Үргэлжлэх хугацаа: 50 мин</small><small>Үнэ: 80,000₮</small></div></div></div>
+                        <div class="col-md-6 mb-3"><div class="card selection-card p-3" onclick="selectService(this)"><h6><i class="bi bi-eye-fill"></i> Сормуус суулгах</h6><div class="d-flex justify-content-between text-muted"><small>Үргэлжлэх хугацаа: 90 мин</small><small>Үнэ: 75,000₮</small></div></div></div>
+                    </div>
+                    <div class="text-end mt-4"><button class="btn btn-primary" onclick="goToStep(2)">Үргэлжлүүлэх <i class="bi bi-arrow-right"></i></button></div>
+                </div>
+                <div id="step2" class="step-content card p-4 d-none">
+                    <h5 class="mb-3">2. Өдөр, цагаа сонгоно уу</h5>
+                    <div class="row">
+                        <div class="col-md-7"><div id="customer-calendar"></div></div>
+                        <div class="col-md-5"><h6 class="text-center mt-3 mt-md-0">Боломжит цагууд</h6><div class="d-flex flex-wrap justify-content-center border-start-md p-2">
+                            <button class="btn btn-outline-primary time-slot">09:00</button><button class="btn btn-outline-primary time-slot">10:00</button><button class="btn btn-outline-primary time-slot disabled" disabled>11:00</button>
+                            <button class="btn btn-outline-primary time-slot">12:00</button><button class="btn btn-outline-primary time-slot">14:00</button><button class="btn btn-outline-primary time-slot disabled" disabled>15:00</button>
+                            <button class="btn btn-outline-primary time-slot">16:00</button><button class="btn btn-outline-primary time-slot">17:00</button>
+                        </div></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4"><button class="btn btn-outline-primary" onclick="goToStep(1)"><i class="bi bi-arrow-left"></i> Буцах</button><button class="btn btn-primary" onclick="goToStep(3)">Үргэлжлүүлэх <i class="bi bi-arrow-right"></i></button></div>
+                </div>
+                <div id="step3" class="step-content card p-4 d-none">
+                    <h5 class="mb-3">3. Мэдээллээ оруулна уу</h5>
+                    <div class="mb-3"><label for="customerName" class="form-label">Нэр</label><input type="text" class="form-control" id="customerName" placeholder="Таны нэр"></div>
+                    <div class="mb-3"><label for="customerPhone" class="form-label">Утасны дугаар</label><input type="tel" class="form-control" id="customerPhone" placeholder="8811****"></div>
+                    <div class="mb-3"><label for="customerEmail" class="form-label">И-мэйл</label><input type="email" class="form-control" id="customerEmail" placeholder="name@example.com"></div>
+                    <div class="d-flex justify-content-between mt-4"><button class="btn btn-outline-primary" onclick="goToStep(2)"><i class="bi bi-arrow-left"></i> Буцах</button><button class="btn btn-primary" onclick="goToStep(4)">Үргэлжлүүлэх <i class="bi bi-arrow-right"></i></button></div>
+                </div>
+                <div id="step4" class="step-content card p-4 d-none">
+                    <h5 class="mb-3">4. Урьдчилгаа төлбөр</h5>
+                    <div class="alert alert-info">Захиалга баталгаажуулахын тулд <strong id="depositAmountText">15,000₮</strong> урьдчилгаа төлбөр шаардлагатай.</div>
+                    <p>Төлбөр төлөх хэлбэрээ сонгоно уу:</p>
+                    <div class="list-group"><label class="list-group-item list-group-item-action"><input class="form-check-input me-2" type="radio" name="payment" checked> QPay</label><label class="list-group-item list-group-item-action"><input class="form-check-input me-2" type="radio" name="payment"> SocialPay</label><label class="list-group-item list-group-item-action"><input class="form-check-input me-2" type="radio" name="payment"> Банкны картаар</label></div>
+                    <div class="d-flex justify-content-between mt-4"><button class="btn btn-outline-primary" onclick="goToStep(3)"><i class="bi bi-arrow-left"></i> Буцах</button><button class="btn btn-primary" onclick="goToStep(5)">Төлбөр төлөх</button></div>
+                </div>
+                <div id="step5" class="step-content card p-4 d-none">
+                    <div class="confirmation-screen p-4">
+                        <div class="icon mb-3"><i class="bi bi-check-circle-fill"></i></div><h3 class="mb-3">Цаг товлолт баталгаажлаа!</h3>
+                        <p class="text-muted">Таны захиалгын мэдээллийг и-мэйл болон утас руу илгээлээ.</p>
+                        <div class="card bg-light p-3 mt-4 text-start"><h6>Захиалгын дэлгэрэнгүй:</h6><p class="mb-1"><strong>Үйлчилгээ:</strong> <span id="confService"></span></p><p class="mb-1"><strong>Огноо, цаг:</strong> <span id="confDateTime"></span></p><p class="mb-0"><strong>Байршил:</strong> Гоо Сайхны Салон, Улаанбаатар</p></div>
+                        <button class="btn btn-primary mt-4" onclick="goToStep(1)">Шинэ захиалга хийх</button>
+                    </div>
+                </div>
+            </div></div>
+        </div>
 
-        <p>
-          I've B.S. in Software Engineering and M.S. in Computer Science in progress. Currently working as 
-          a Full Stack Web Developer. 
-        </p>
+        <div id="businessView" class="d-none">
+            <div class="card">
+                <div class="card-header"><ul class="nav nav-pills card-header-pills" id="businessTabs" role="tablist">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="pill" href="#appointments" role="tab">Захиалгууд</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="pill" href="#calendar-view" role="tab">Календарь</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="pill" href="#services" role="tab">Үйлчилгээ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="pill" href="#profile" role="tab">Профайл</a></li>
+                </ul></div>
+                <div class="card-body"><div class="tab-content">
+                    <div class="tab-pane fade show active" id="appointments" role="tabpanel"><h5>Бүх захиалгын жагсаалт</h5><div class="table-responsive"><table class="table table-hover align-middle"><thead><tr><th>Огноо</th><th>Үйлчлүүлэгч</th><th>Үйлчилгээ</th><th>Статус</th><th>Үйлдэл</th></tr></thead><tbody>
+                        <tr><td>2025-06-20 09:00</td><td>Болд</td><td>Эмэгтэй үс засалт</td><td><span class="badge bg-success">Баталгаажсан</span></td><td><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></button> <button class="btn btn-sm btn-outline-danger"><i class="bi bi-x-circle"></i></button></td></tr>
+                        <tr><td>2025-06-20 10:00</td><td>Төгсөө</td><td>Маникюр</td><td><span class="badge bg-warning text-dark">Хүлээгдэж буй</span></td><td><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></button> <button class="btn btn-sm btn-outline-danger"><i class="bi bi-x-circle"></i></button></td></tr>
+                        <tr><td>2025-06-21 14:00</td><td>Гэрэл</td><td>Нүүр будалт</td><td><span class="badge bg-danger">Цуцлагдсан</span></td><td><button class="btn btn-sm btn-outline-primary" disabled><i class="bi bi-pencil-square"></i></button> <button class="btn btn-sm btn-outline-danger" disabled><i class="bi bi-x-circle"></i></button></td></tr>
+                    </tbody></table></div></div>
+                    <div class="tab-pane fade" id="calendar-view" role="tabpanel"><h5>Захиалгын календарь</h5><div id="businessCalendar"></div></div>
+                    <div class="tab-pane fade" id="services" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center mb-3"><h5>Үйлчилгээний удирдлага</h5><button class="btn btn-primary"><i class="bi bi-plus-circle"></i> Шинэ үйлчилгээ</button></div>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><div>Эмэгтэй үс засалт<br><small class="text-muted">Хугацаа: 45 мин</small></div><span><strong class="text-primary me-3">35,000₮</strong><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><div>Маникюр<br><small class="text-muted">Хугацаа: 60 мин</small></div><span><strong class="text-primary me-3">50,000₮</strong><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><div>Нүүр будалт<br><small class="text-muted">Хугацаа: 50 мин</small></div><span><strong class="text-primary me-3">80,000₮</strong><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel">
+                        <h5>Бизнесийн мэдээлэл</h5>
+                        <form>
+                            <div class="mb-3"><label class="form-label">Бизнесийн нэр</label><input type="text" class="form-control" value="Гоо Сайхны Салон"></div>
+                            <div class="mb-3"><label class="form-label">Хаяг</label><input type="text" class="form-control" value="Улаанбаатар, Сүхбаатар дүүрэг, 1-р хороо"></div>
+                            <hr>
+                            <h5>Урьдчилгаа төлбөрийн тохиргоо</h5>
+                            <div class="form-check form-switch mb-3"><input class="form-check-input" type="checkbox" role="switch" id="requireDepositToggle" checked onchange="toggleDepositAmount(this.checked)"><label class="form-check-label" for="requireDepositToggle">Урьдчилгаа төлбөр шаардах</label></div>
+                            <div id="depositAmountContainer"><label for="depositAmountInput" class="form-label">Урьдчилгаа дүн (₮)</label><input type="number" class="form-control" id="depositAmountInput" value="15000"></div>
+                            <button type="submit" class="btn btn-primary mt-4">Хадгалах</button>
+                        </form>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="signupModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Бизнес бүртгүүлэх</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body"><form><div class="mb-3"><label class="form-label">Бизнесийн нэр</label><input type="text" class="form-control"></div><div class="mb-3"><label class="form-label">И-мэйл</label><input type="email" class="form-control"></div><div class="mb-3"><label class="form-label">Нууц үг</label><input type="password" class="form-control"></div></form></div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Хаах</button><button type="button" class="btn btn-primary">Бүртгүүлэх</button></div>
+    </div></div></div>
 
-        <ul class="links">
-          <li>
-            <a href="https://github.com/khangarid" aria-label="github" rel="noreferrer">
-              <img alt="Github" src="assets/icons/github.svg" />
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/khangarid-davaadorj/" aria-label="linkedin" rel="noreferrer">
-              <img alt="LinkedIn" src="assets/icons/linkedin.svg" />
-            </a>
-          </li>
-          <li>
-            <a href="mailto:khangarid.davaadorj@gmail.com" aria-label="email" rel="noreferrer">
-              <img alt="Email" src="assets/icons/mail.svg" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-  <script type="text/javascript" src="bundle.js"></script></body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Global State
+        let currentStep = 1;
+        let selectedDate = new Date();
+        const customerState = {};
+
+        // DOM Elements
+        const customerView = document.getElementById('customerView');
+        const businessView = document.getElementById('businessView');
+        const customerViewBtn = document.getElementById('customerViewBtn');
+        const businessViewBtn = document.getElementById('businessViewBtn');
+        const steps = document.querySelectorAll('.step-content');
+        const stepDots = document.querySelectorAll('.step-dot');
+        const progressBar = document.querySelector('.step-wizard .progress-bar');
+        
+        // --- VIEW SWITCHER ---
+        customerViewBtn.addEventListener('click', () => switchView('customer'));
+        businessViewBtn.addEventListener('click', () => switchView('business'));
+
+        function switchView(viewName) {
+            const isCustomer = viewName === 'customer';
+            customerView.classList.toggle('d-none', !isCustomer);
+            businessView.classList.toggle('d-none', isCustomer);
+            customerViewBtn.classList.toggle('btn-primary', isCustomer);
+            customerViewBtn.classList.toggle('btn-outline-primary', !isCustomer);
+            businessViewBtn.classList.toggle('btn-primary', !isCustomer);
+            businessViewBtn.classList.toggle('btn-outline-primary', isCustomer);
+        }
+
+        // --- CUSTOMER FLOW ---
+        function updateStepIndicator() {
+            const progressPercentage = ((currentStep - 1) / (steps.length - 1)) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            stepDots.forEach(dot => {
+                const step = parseInt(dot.getAttribute('data-step'));
+                dot.classList.remove('active', 'completed');
+                if (step < currentStep) dot.classList.add('completed');
+                else if (step === currentStep) dot.classList.add('active');
+            });
+        }
+
+        function goToStep(stepNumber) {
+            if (stepNumber < 1 || stepNumber > steps.length) return;
+            currentStep = stepNumber;
+            
+            // Logic before showing step
+            if (stepNumber === 5) { // Confirmation step
+                const timeButton = document.querySelector('.time-slot.btn-primary');
+                customerState.time = timeButton ? timeButton.innerText : 'N/A';
+                document.getElementById('confService').innerText = customerState.serviceName;
+                document.getElementById('confDateTime').innerText = `${selectedDate.toLocaleDateString()}, ${customerState.time}`;
+            }
+
+            steps.forEach(step => step.classList.add('d-none'));
+            document.getElementById(`step${stepNumber}`).classList.remove('d-none');
+            
+            document.querySelector('.step-wizard').style.display = (stepNumber === steps.length) ? 'none' : '';
+            updateStepIndicator();
+
+            if (stepNumber === 1) { // Reset for new booking
+                document.querySelectorAll('.selection-card.selected').forEach(c => c.classList.remove('selected'));
+                selectedDate = new Date();
+                renderCustomerCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+            }
+        }
+        
+        function selectService(card) {
+            document.querySelectorAll('.selection-card.selected').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            customerState.serviceName = card.querySelector('h6').innerText;
+        }
+        
+        document.querySelectorAll('.time-slot:not(.disabled)').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.time-slot.btn-primary').forEach(btn => btn.classList.remove('btn-primary'));
+                button.classList.add('btn-primary');
+            });
+        });
+
+        // --- CUSTOMER CALENDAR ---
+        const calendarContainer = document.getElementById('customer-calendar');
+        let currentYear, currentMonth;
+
+        function renderCustomerCalendar(year, month) {
+            currentYear = year;
+            currentMonth = month;
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const monthNames = ["1-р сар", "2-р сар", "3-р сар", "4-р сар", "5-р сар", "6-р сар", "7-р сар", "8-р сар", "9-р сар", "10-р сар", "11-р сар", "12-р сар"];
+            const weekdays = ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"];
+            
+            let html = `
+                <div class="calendar-header">
+                    <button class="btn btn-sm" onclick="prevMonth()"><i class="bi bi-chevron-left"></i></button>
+                    <strong>${monthNames[month]} ${year}</strong>
+                    <button class="btn btn-sm" onclick="nextMonth()"><i class="bi bi-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                    ${weekdays.map(day => `<div class="calendar-weekday">${day}</div>`).join('')}
+            `;
+            
+            for(let i=0; i < firstDay.getDay(); i++) html += "<div></div>";
+
+            for(let day=1; day <= lastDay.getDate(); day++) {
+                const date = new Date(year, month, day);
+                let classes = "calendar-day";
+                // Demo unavailable days
+                if (date < today || day === 24 || day === 28) classes += " disabled";
+                if (date.getTime() === today.getTime()) classes += " today";
+                if (selectedDate && date.getTime() === selectedDate.getTime()) classes += " selected";
+                html += `<div class="${classes}" onclick="selectDate(this, ${year}, ${month}, ${day})">${day}</div>`;
+            }
+            html += `</div>`;
+            calendarContainer.innerHTML = html;
+        }
+        
+        function selectDate(element, year, month, day) {
+            if (element.classList.contains('disabled')) return;
+            selectedDate = new Date(year, month, day);
+            document.querySelectorAll('.calendar-day.selected').forEach(d => d.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+        function prevMonth() { renderCustomerCalendar(currentMonth === 0 ? currentYear - 1 : currentYear, currentMonth === 0 ? 11 : currentMonth - 1); }
+        function nextMonth() { renderCustomerCalendar(currentMonth === 11 ? currentYear + 1 : currentYear, currentMonth === 11 ? 0 : currentMonth + 1); }
+
+        // --- BUSINESS VIEW ---
+        let businessCalendar;
+        const calendarEl = document.getElementById('businessCalendar');
+        
+        function initializeBusinessCalendar() {
+            if(businessCalendar) return; // Prevent re-initialization
+            
+            businessCalendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'mn',
+                headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek' },
+                events: [
+                    { title: 'Болд - Үс засалт', start: '2025-06-20T09:00:00', backgroundColor: '#28a745', borderColor: '#28a745' },
+                    { title: 'Төгсөө - Маникюр', start: '2025-06-20T10:00:00', backgroundColor: '#ffc107', borderColor: '#ffc107' },
+                    { title: 'Гэрэл - Нүүр будалт', start: '2025-06-21T14:00:00', backgroundColor: '#dc3545', borderColor: '#dc3545'},
+                ]
+            });
+            businessCalendar.render();
+        }
+
+        // Fix calendar rendering issue by rendering it only when its tab is shown
+        const calendarTab = document.querySelector('a[href="#calendar-view"]');
+        calendarTab.addEventListener('shown.bs.tab', () => {
+            if (!businessCalendar) {
+                initializeBusinessCalendar();
+            } else {
+                businessCalendar.render();
+            }
+        });
+
+        function toggleDepositAmount(checked) {
+            document.getElementById('depositAmountContainer').style.display = checked ? 'block' : 'none';
+        }
+        
+        // --- INITIALIZATION ---
+        document.addEventListener("DOMContentLoaded", () => {
+            goToStep(1); // Start customer flow at step 1
+            renderCustomerCalendar(selectedDate.getFullYear(), selectedDate.getMonth());
+            toggleDepositAmount(document.getElementById('requireDepositToggle').checked);
+        });
+    </script>
+
+</body>
 </html>
